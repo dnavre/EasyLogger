@@ -1,0 +1,5 @@
+EasyLogger is an easy to use PHP logging solution.
+
+Just include EasyLogger.class.php and use debug(), info(), warn(), error(), fatal() functions
+
+author Yervand Aghababyan <yervand.aghababyan@gmail.com>
