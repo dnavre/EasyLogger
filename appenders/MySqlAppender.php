@@ -23,10 +23,12 @@
  * 
  */
 
-class MySqlAppender implements Appender {
+namespace easyLogger;
+
+class MySqlAppender implements \easyLogger\Appender {
 	
 	public function getName() {
-		return get_class(self);
+		return get_class($this);
 	}
 
     /**

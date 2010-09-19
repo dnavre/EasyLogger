@@ -23,10 +23,12 @@
  * 
  */
 
-class HtmlAppender implements Appender {
+namespace easyLogger;
+
+class HtmlAppender implements \easyLogger\Appender {
 	
 	public function getName() {
-		return get_class(self);
+		return get_class($this);
 	}
 
     /**

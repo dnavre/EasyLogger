@@ -23,6 +23,8 @@
  * 
  */
 
+namespace easyLogger;
+
 /**
  * 
  * Any EasyLogger's appender should implement this interface

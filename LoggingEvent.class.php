@@ -23,6 +23,8 @@
  * 
  */
 
+namespace easyLogger;
+
 /**
  * An instance of this class represents a single logger's event.
  * 
@@ -60,12 +62,12 @@ class LoggingEvent {
 	/**
 	 * Class Constructor
 	 * 
-	 * @param EasyLogger $logger
+	 * @param Logger $logger
 	 * @param int $level
 	 * @param int $timestamp
 	 * @param string $msg
 	 */
-	public function __construct(EasyLogger $logger, $level, $timestamp, $msg) {
+	public function __construct(Logger $logger, $level, $timestamp, $msg) {
 		$this->logger 		= $logger;
 		$this->level 		= $level;
 		$this->timestamp 	= $timestamp;
@@ -106,7 +108,7 @@ class LoggingEvent {
 	 * @return string
 	 */
 	public function getLevelStr() {
-		return EasyLogger::$this->level;
+		return Logger::$this->level;
 	}
 
 	/**

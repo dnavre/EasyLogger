@@ -23,10 +23,12 @@
  * 
  */
 
+namespace easyLogger;
+
 class EchoAppender implements Appender {
 	
 	public function getName() {
-		return get_class(self);
+		return get_class($this);
 	}
 
     /**
