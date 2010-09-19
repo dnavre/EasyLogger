@@ -2,4 +2,6 @@ EasyLogger is an easy to use PHP logging solution.
 
 Just include EasyLogger.class.php and use debug(), info(), warn(), error(), fatal() functions
 
+EasyLogger REQUIRES PHP 5.3 or above cause it uses php namespaces in it's inner works
+
 author Yervand Aghababyan <yervand.aghababyan@gmail.com>
