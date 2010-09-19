@@ -23,11 +23,13 @@
  * 
  */
 
+namespace easyLogger;
+
 define ( 'SIMPLE_LOGGER_PATH', dirname ( __FILE__ ) );
 
 require_once SIMPLE_LOGGER_PATH . '/LoggingEvent.class.php';
 require_once SIMPLE_LOGGER_PATH . '/Appender.interface.php';
-require_once SIMPLE_LOGGER_PATH . '/funcs.php';
+require_once SIMPLE_LOGGER_PATH . '/shortLogFunctions.php';
 require_once SIMPLE_LOGGER_PATH . '/appenders/EchoAppender.class.php';
 
 /**
@@ -35,7 +37,7 @@ require_once SIMPLE_LOGGER_PATH . '/appenders/EchoAppender.class.php';
  * @author Yervand Aghababyan
  *
  */
-class EasyLogger {
+class Logger {
 	
 	const LOG_LEVEL_TRACE 	= 3;
 	const LOG_LEVEL_DEBUG 	= 6;
@@ -157,7 +159,7 @@ class EasyLogger {
 		}
 		
 		if (! isset ( self::$loggers [$loggerName] )) {
-			self::$loggers [$loggerName] = new EasyLogger ( $loggerName );
+			self::$loggers [$loggerName] = new Logger ( $loggerName );
 		}
 		
 		return self::$loggers [$loggerName];

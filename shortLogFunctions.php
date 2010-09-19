@@ -28,7 +28,7 @@
  * @param String $msg
  */
 function trace($msg, $loggerName = null) {
-    EasyLogger::getLogger($loggerName)->log(EasyLogger::LOG_LEVEL_TRACE, $msg);
+    \easyLogger\Logger::getLogger($loggerName)->log(\easyLogger\Logger::LOG_LEVEL_TRACE, $msg);
 }
 
 /**
@@ -36,7 +36,7 @@ function trace($msg, $loggerName = null) {
  * @param String $msg
  */
 function debug($msg, $loggerName = null) {
-    EasyLogger::getLogger($loggerName)->log(EasyLogger::LOG_LEVEL_DEBUG, $msg);
+    \easyLogger\Logger::getLogger($loggerName)->log(\easyLogger\Logger::LOG_LEVEL_DEBUG, $msg);
 }
 
 /**
@@ -44,7 +44,7 @@ function debug($msg, $loggerName = null) {
  * @param String $msg
  */
 function info($msg, $loggerName = null) {
-    EasyLogger::getLogger($loggerName)->log(EasyLogger::LOG_LEVEL_INFO, $msg);
+    \easyLogger\Logger::getLogger($loggerName)->log(\easyLogger\Logger::LOG_LEVEL_INFO, $msg);
 }
 
 /**
@@ -52,7 +52,7 @@ function info($msg, $loggerName = null) {
  * @param String $msg
  */
 function warn($msg, $loggerName = null) {
-    EasyLogger::getLogger($loggerName)->log(EasyLogger::LOG_LEVEL_WARN, $msg);
+    \easyLogger\Logger::getLogger($loggerName)->log(\easyLogger\Logger::LOG_LEVEL_WARN, $msg);
 }
 
 /**
@@ -60,7 +60,7 @@ function warn($msg, $loggerName = null) {
  * @param String $msg
  */
 function error($msg, $loggerName = null) {
-    EasyLogger::getLogger($loggerName)->log(EasyLogger::LOG_LEVEL_ERROR, $msg);
+    \easyLogger\Logger::getLogger($loggerName)->log(\easyLogger\Logger::LOG_LEVEL_ERROR, $msg);
 }
 
 /**
@@ -68,7 +68,7 @@ function error($msg, $loggerName = null) {
  * @param String $msg
  */
 function fatal($msg, $loggerName = null) {
-    EasyLogger::getLogger($loggerName)->log(EasyLogger::LOG_LEVEL_FATAL, $msg);
+    \easyLogger\Logger::getLogger($loggerName)->log(\easyLogger\Logger::LOG_LEVEL_FATAL, $msg);
 }
 
 ?>
