@@ -71,7 +71,7 @@ class LoggingEvent {
 		$this->logger 		= $logger;
 		$this->level 		= $level;
 		$this->timestamp 	= $timestamp;
-		$this->msg 			= $msg;
+		$this->msg 		= $msg;
 		
 	}
 	

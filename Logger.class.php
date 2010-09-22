@@ -31,6 +31,7 @@ require_once SIMPLE_LOGGER_PATH . '/LoggingEvent.class.php';
 require_once SIMPLE_LOGGER_PATH . '/Appender.interface.php';
 require_once SIMPLE_LOGGER_PATH . '/shortLogFunctions.php';
 require_once SIMPLE_LOGGER_PATH . '/appenders/EchoAppender.class.php';
+require_once SIMPLE_LOGGER_PATH . '/appenders/XmlAppender.class.php';
 
 /**
  * 
@@ -53,6 +54,13 @@ class Logger {
 	 * @var array
 	 */
 	private static $loggers = array ();
+
+	/**
+	 * the Default appender to use for newly created loggers
+	 *
+	 * @var Appender
+	 */
+	private static $defaultAppender = null;
 	
 	/**
 	 * A list of appenders log messages would be added to
@@ -75,7 +83,7 @@ class Logger {
 	private function __construct($name) {
 		$this->name = $name;
 		
-		$this->addAppender ( new EchoAppender () );
+		$this->addAppender ( self::getDefaultAppender() );
 	}
 	
 	/**
@@ -89,11 +97,12 @@ class Logger {
 	/**
 	 *
 	 * @param Appender $appender
-	 * @param bool $removePreviouslyAdded if true removes all previously added appenders
+	 * @param bool $removePreviouslyAdded if true removes all previously
+	 *		added appenders
 	 */
-	public function addAppender(Appender $appender, $removePreviouslyAdded = false) {
+	public function addAppender(Appender $appender, $removeOthers = false) {
 		
-		if ($removePreviouslyAdded) {
+		if ($removeOthers) {
 			$this->appenders = array ();
 		}
 		
@@ -147,6 +156,33 @@ class Logger {
 		
 		return $logLevel;
 	}
+
+	/**
+	 * Sets a default appender. All loggers created after this action will
+	 * use this appender as default.
+	 *
+	 * @param Appender $a
+	 */
+	public static function setDefaultAppender(Appender $a) {
+	    self::$defaultAppender = $a;
+	}
+
+	/**
+	 * Get the default appender
+	 *
+	 * @return Appender
+	 */
+	public static function getDefaultAppender() {
+	    return self::$defaultAppender;
+	}
+
+	/**
+	 * Does initialization routine for the logging system. is called once
+	 * the logger class is included.
+	 */
+	public static function init() {
+	    self::$defaultAppender = new EchoAppender();
+	}
 	
 	/**
 	 *
@@ -165,5 +201,8 @@ class Logger {
 		return self::$loggers [$loggerName];
 	}
 }
+
+// Do initializational stuff
+Logger::init();
 
 ?>
