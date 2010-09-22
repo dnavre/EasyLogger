@@ -25,7 +25,7 @@
 
 namespace easyLogger;
 
-class EchoAppender implements Appender {
+class EchoAppender extends AppenderSkeleton {
 	
 	public function getName() {
 		return get_class($this);

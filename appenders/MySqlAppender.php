@@ -25,7 +25,7 @@
 
 namespace easyLogger;
 
-class MySqlAppender implements \easyLogger\Appender {
+class MySqlAppender extends AppenderSkeleton {
 	
 	public function getName() {
 		return get_class($this);
